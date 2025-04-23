@@ -29,7 +29,7 @@ Follow the instructions below to set up **hitsuapp** locally on your machine.
 
 ### Prerequisites
 
-- PHP >= 8.1 (Laravel 12 requires PHP 8.1 or higher)
+- PHP >= 8.2 (Laravel 12 requires PHP 8.2 or higher)
 
 - Composer (for managing PHP dependencies)
 
