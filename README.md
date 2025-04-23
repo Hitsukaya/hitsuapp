@@ -33,7 +33,7 @@ Follow the instructions below to set up **hitsuapp** locally on your machine.
 
 - Composer (for managing PHP dependencies)
 
-- MySQL or another supported database
+- MySQL or MariaDB
 
 - Node.js and npm (for compiling frontend assets)
 
@@ -45,7 +45,7 @@ Follow the instructions below to set up **hitsuapp** locally on your machine.
 
 Navigate to the project directory and install the PHP and Node.js dependencies.
 
-`cd hitsuapp composer install npm install`
+`cd hitsuapp composer install && npm install`
 
 ### Set Up Environment
 
