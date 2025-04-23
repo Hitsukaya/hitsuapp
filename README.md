@@ -39,19 +39,11 @@ Follow the instructions below to set up **hitsuapp** locally on your machine.
 
 ### Clone the Repository
 
-bash
-
-CopyEdit
-
 `git clone https://github.com/Hitsukaya/hitsuapp.git`
 
 ### Install Dependencies
 
 Navigate to the project directory and install the PHP and Node.js dependencies.
-
-bash
-
-CopyEdit
 
 `cd hitsuapp composer install npm install`
 
@@ -59,17 +51,9 @@ CopyEdit
 
 Copy the `.env.example` file to `.env` and update the environment variables, especially the database credentials.
 
-bash
-
-CopyEdit
-
 `cp .env.example .env`
 
 Generate the application key:
-
-bash
-
-CopyEdit
 
 `php artisan key:generate`
 
@@ -77,27 +61,15 @@ CopyEdit
 
 Run the migrations to set up your database schema:
 
-bash
-
-CopyEdit
-
 `php artisan migrate`
 
 Optionally, you can seed the database with sample data:
-
-bash
-
-CopyEdit
 
 `php artisan db:seed`
 
 ### Serve the Application
 
 Once the setup is complete, you can start the Laravel development server:
-
-bash
-
-CopyEdit
 
 `php artisan serve`
 
