@@ -45,7 +45,7 @@ Follow the instructions below to set up **hitsuapp** locally on your machine.
 
 Navigate to the project directory and install the PHP and Node.js dependencies.
 
-`cd hitsuapp composer install && npm install`
+`cd hitsuapp && composer install && npm install`
 
 ### Set Up Environment
 
