@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <title>{{ config('app.name') }}</title>
+
+        <!-- Used to add dark mode right away, adding here prevents any flicker -->
+        <script>
+            if (typeof(Storage) !== "undefined") {
+                if(localStorage.getItem('dark_mode') && localStorage.getItem('dark_mode') == 'true'){
+                    document.documentElement.classList.add('dark');
+                }
+            }
+        </script>
+
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Styles -->
+        @livewireStyles
+
+    </head>
+    <body class="font-sans antialiased bg-gray-100 dark:bg-neutral-950">
+
+            <x-banner />
+
+            <!-- Page Heading -->
+            @if (isset($header))
+                <header class="bg-white shadow dark:bg-gray-800">
+                    <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endif
+
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
+        </div>
+
+        @stack('modals')
+
+        @livewireScripts
+    </body>
+</html>
