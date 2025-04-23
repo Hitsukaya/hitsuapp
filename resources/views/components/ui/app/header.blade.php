@@ -1,4 +1,4 @@
-<div class="w-full text-gray-700 bg-white dark:text-white dark:bg-neutral-950 dark:shadow-md">
+<div class="w-full text-gray-700 bg-white dark:text-white dark:bg-neutral-900 dark:shadow-md">
     <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
       <div class="p-4 flex flex-row items-center justify-between">
         <div class="inline-flex">

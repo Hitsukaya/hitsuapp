@@ -8,7 +8,7 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white shadow dark:bg-neutral-950">
+                <header class="bg-white shadow dark:bg-neutral-900">
                     <div class="px-4 py-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
