@@ -8,10 +8,12 @@ use App\Filament\Resources\ServiceResource\Pages;
 use App\Filament\Resources\ServiceResource\Pages\EditService;
 use App\Filament\Resources\ServiceResource\Pages\ViewService;
 use App\Filament\Resources\ServiceResource\RelationManagers;
+use App\Filament\Resources\ServiceResource\Widgets\ServiceStatusStatsWidget;
 use Filament\Forms;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextEditor;
@@ -19,7 +21,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Form;
-use Filament\Forms\Components\Grid;
 use Filament\Infolists\Components\Group;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\Section;
@@ -34,8 +35,8 @@ use Filament\Tables\Table;
 use FilamentTiptapEditor\Enums\TiptapOutput;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 //use Modules\Services\Entities\ServiceCategory;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 use Modules\Services\Entities\Service;
 use Modules\Services\Enums\ServiceStatus;
@@ -238,6 +239,13 @@ class ServiceResource extends Resource
            //CreateServiceCategory::class,
 
         ]);
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            ServiceStatusStatsWidget::class,
+        ];
     }
 
     public static function getRelations(): array

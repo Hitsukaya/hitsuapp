@@ -3,9 +3,10 @@
 namespace App\Filament\Resources\ServiceResource\Pages;
 
 use App\Filament\Resources\ServiceResource;
+use App\Filament\Resources\ServiceResource\Widgets\ServiceStatusStatsWidget;
 use Filament\Actions;
-use Filament\Resources\Pages\ListRecords;
 use Filament\Resources\Components\Tab;
+use Filament\Resources\Pages\ListRecords;
 
 class ListServices extends ListRecords
 {
@@ -38,4 +39,5 @@ class ListServices extends ListRecords
                 ->icon('heroicon-o-calendar-days'),
         ];
     }
+
 }

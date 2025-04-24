@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\ServiceResource\Pages;
 
 use App\Filament\Resources\ServiceResource;
+use App\Filament\Resources\ServiceResource\Widgets\ServiceStatusStatsWidget;
 use Filament\Actions;
 use Filament\Actions\Action;
 use Filament\Resources\Pages\ViewRecord;
@@ -38,4 +39,5 @@ class ViewService extends ViewRecord
 
         return $record->title;
     }
+
 }
