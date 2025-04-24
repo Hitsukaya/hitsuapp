@@ -32,8 +32,14 @@ class ServiceCategory extends Model
         });
     }
 
+    // public function services()
+    // {
+    //     return $this->hasMany(Service::class);
+    // }
+
     public function services()
     {
-        return $this->hasMany(Service::class);
+        return $this->belongsToMany(Service::class, 'category_service', 'category_id', 'service_id');
     }
 }
+

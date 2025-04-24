@@ -10,8 +10,17 @@
         {{ $service->title }}
     </h1>
 
-    <p class="text-sm text-gray-600 dark:text-gray-400 mb-8">
-        <span class="font-semibold">Category:</span> {{ $service->category->name ?? 'No category' }}
+    <p class="text-sm text-gray-600 dark:text-gray-400 mb-8 flex justify-center items-center gap-x-2">
+        @if($service->categories->isNotEmpty())
+            @foreach($service->categories as $category)
+                <a href="{{ route('services.category', ['slug' => $category->slug]) }}" class="dark:text-blue-500">
+                    <span class="font-semibold dark:text-white">Category:</span> {{ $category->name }}
+                </a>
+            @endforeach
+        @else
+            <span class="font-semibold dark:text-white">Category:</span> No category
+        @endif
+        <span class="font-semibold dark:text-white px-2 gap-2">Published on: {{ \Carbon\Carbon::parse($service->created_at)->format('F j, Y') }}</span>
     </p>
 
     <div class="tiptap-content">

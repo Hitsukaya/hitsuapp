@@ -297,7 +297,10 @@ return [
     'activator' => 'file',
 
     'modules' => [
-    'Services',
+        'enabled' => [
+            'Services',
+        ],
     ],
+
 
 ];

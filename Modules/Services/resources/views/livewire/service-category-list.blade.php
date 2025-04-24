@@ -1,3 +1,19 @@
+<section>
+    <div class="bg-gray-100 dark:bg-neutral-900 font-sans text-center">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col justify-center items-center my-16">
+                <h1 class="text-5xl font-extrabold mb-4 dark:text-white">Category: <span class="text-red-600">{{ $category->name }}</span></h1>
+                <p class="text-lg mb-6 dark:text-white">Explore our services in this category and find the best solutions for your needs.</p>
+                <a href="{{ route('home') }}" class="inline-block bg-transparent border-2 border-black text-red-500  hover:bg-white dark:border-white dark:text-red-500 py-2 px-6 rounded-full dark:hover:bg-white hover:text-gray-800 transition duration-300">Back to Home</a>
+
+            </div>
+        </div>
+    </div>
+
+
+@if($services->isEmpty())
+<p class="text-gray-600">No services available for this category.</p>
+@else
 <div x-data="{
     scroll: $refs.cards,
     interval: null,
@@ -14,7 +30,8 @@
     }
 }" x-init="init" @mouseenter="stopAutoplay" @mouseleave="startAutoplay" class="relative overflow-hidden w-full bg-gray-100 dark:bg-neutral-900 py-8">
     <div x-ref="cards" class="flex gap-6 overflow-x-auto px-6 scroll-smooth snap-x snap-mandatory">
-        @foreach ($services as $service)
+
+        @foreach($services as $service)
             <div class="relative min-w-[250px] max-w-[250px] bg-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out snap-center flex-shrink-0">
 
                 @if ($service->cover_image)
@@ -55,3 +72,5 @@
         ›
     </button>
 </div>
+@endif
+</section>
