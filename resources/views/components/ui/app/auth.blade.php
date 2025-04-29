@@ -21,6 +21,13 @@
                     <x-nav-link href="{{ route('home') }}">
                         {{ __('Home') }}
                     </x-nav-link>
+
+                    @if(auth()->user()?->hasRole(\App\Models\User::ROLE_ADMIN))
+                    <x-nav-link href="{{ route('filament.dragon-hitsu-admin.pages.dashboard') }}">
+                        {{ __('Administrator') }}
+                    </x-nav-link>
+                    @endif
+
                 </div>
             </div>
 
@@ -104,6 +111,12 @@
                                 {{ __('Manage Account') }}
                             </div>
 
+                            @if(auth()->user()?->hasRole(\App\Models\User::ROLE_ADMIN))
+                            <x-dropdown-link href="{{ route('filament.dragon-hitsu-admin.pages.dashboard') }}">
+                                {{ __('Administrator') }}
+                            </x-dropdown-link>
+                            @endif
+
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
@@ -169,6 +182,13 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <!-- Administrator Management  -->
+                @if(auth()->user()?->hasRole(\App\Models\User::ROLE_ADMIN))
+                <x-responsive-nav-link href="{{ route('filament.dragon-hitsu-admin.pages.dashboard') }}">
+                    {{ __('Administrator') }}
+                </x-responsive-nav-link>
+                @endif
+
                 <!-- Account Management -->
                 <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
