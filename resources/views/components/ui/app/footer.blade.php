@@ -1,5 +1,4 @@
-
-<footer class="w-full py-6 p-6 bg-white dark:bg-neutral-950">
+<footer class="w-full py-6 p-6 bg-white dark:bg-neutral-900">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex space-x-10 justify-center items-center mb-14">
             <a href="#" class="block  text-gray-900 dark:text-white transition-all duration-500 hover:text-red-600 dark:hover:text-red-600 ">

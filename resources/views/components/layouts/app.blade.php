@@ -21,6 +21,8 @@
             </main>
         </div>
 
+
+    <x-ui.app.mobile-menu />
     <x-ui.app.footer />
 
 </x-layouts.main>

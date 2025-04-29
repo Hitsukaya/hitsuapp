@@ -1,5 +1,5 @@
 <section>
-    <div class="bg-gray-100 dark:bg-neutral-900 font-sans text-center">
+    <div class="bg-gray-100 dark:bg-neutral-950 font-sans text-center">
         <div class="container mx-auto px-4 py-8">
             <div class="flex flex-col justify-center items-center my-16">
                 <h1 class="text-5xl font-extrabold mb-4 dark:text-white">Category: <span class="text-red-600">{{ $category->name }}</span></h1>
@@ -28,7 +28,7 @@
     init() {
         this.startAutoplay();
     }
-}" x-init="init" @mouseenter="stopAutoplay" @mouseleave="startAutoplay" class="relative overflow-hidden w-full bg-gray-100 dark:bg-neutral-900 py-8">
+}" x-init="init" @mouseenter="stopAutoplay" @mouseleave="startAutoplay" class="relative overflow-hidden w-full bg-gray-100 dark:bg-neutral-950 py-8">
     <div x-ref="cards" class="flex gap-6 overflow-x-auto px-6 scroll-smooth snap-x snap-mandatory">
 
         @foreach($services as $service)
