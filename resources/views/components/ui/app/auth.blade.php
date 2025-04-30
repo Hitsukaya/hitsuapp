@@ -117,6 +117,10 @@
                             </x-dropdown-link>
                             @endif
 
+                            <x-dropdown-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                                {{ __('Dashboard') }}
+                            </x-dropdown-link>
+
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
@@ -161,6 +165,7 @@
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
             <x-responsive-nav-link href="{{ route('home') }}">
                 {{ __('Home') }}
             </x-responsive-nav-link>
@@ -190,6 +195,10 @@
                 @endif
 
                 <!-- Account Management -->
+                <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Dashboard') }}
+                </x-responsive-nav-link>
+
                 <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
