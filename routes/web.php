@@ -9,6 +9,10 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::get('/cookies', function() {
+    return view('cookies');
+})->name('cookies.show');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

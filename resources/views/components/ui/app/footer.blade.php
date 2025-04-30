@@ -1,3 +1,4 @@
+<x-cookie-consent />
 <footer class="w-full py-6 p-6 bg-white dark:bg-neutral-900">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex space-x-10 justify-center items-center mb-14">
@@ -31,7 +32,7 @@
                 <ul class="flex items-center text-sm text-gray-500  dark:text-white gap-9">
                     <li><a href="{{ route('terms.show') }}">Terms</a></li>
                     <li><a href="{{ route('policy.show') }}">Privacy</a></li>
-                    <li><a href="#">Cookies</a></li>
+                    <li><a href="{{ route('cookies.show') }}">Cookies</a></li>
                 </ul>
             </div>
         </div>

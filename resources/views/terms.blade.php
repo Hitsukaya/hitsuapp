@@ -1,7 +1,7 @@
 <x-layouts.app>
     <div class="py-2">
         <div class="min-h-screen flex flex-col items-center sm:pt-0 bg-gray-100 dark:bg-neutral-950">
-            <div class="w-full sm:max-w-2xl mt-6 p-6 bg-white dark:bg-neutral-950 shadow-md overflow-hidden sm:rounded-lg prose dark:prose-invert">
+            <div class="w-full sm:max-w-2xl mt-6 p-6 bg-white dark:bg-neutral-900 shadow-md overflow-hidden sm:rounded-lg prose dark:prose-invert">
                 <h1 class="text-3xl font-bold text-center text-gray-800 dark:text-white">Terms of Service</h1>
                 <p class="text-sm text-center text-gray-600 dark:text-gray-400">Last updated: April 20, 2025</p>
 
