@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Modules\Blog\Entities\BlogPost;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -113,6 +114,12 @@ class User extends Authenticatable implements FilamentUser
         'two_factor_recovery_codes',
         'two_factor_secret',
     ];
+
+    public function blogPosts()
+    {
+        return $this->hasMany(BlogPost::class);
+    }
+
 
     /**
      * The accessors to append to the model's array form.

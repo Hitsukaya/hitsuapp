@@ -299,6 +299,7 @@ return [
     'modules' => [
         'enabled' => [
             'Services',
+            'Blog',
         ],
     ],
 

@@ -10,13 +10,13 @@ class ServiceList extends Component
 {
     public function render()
     {
-        $services = Service::with('categories')->latest()->get();
+        //$services = Service::with('categories')->latest()->get();
 
         $services = Service::with('categories')
-        ->where('status', ServiceStatus::PUBLISHED->value)
-        ->where('published_at', '<=', now())
-        ->latest()
-        ->get();
+            ->where('status', ServiceStatus::PUBLISHED->value)
+            ->where('published_at', '<=', now())
+            ->latest()
+            ->get();
 
         return view('services::livewire.service-list', [
             'services' => $services,

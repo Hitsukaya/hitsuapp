@@ -4,7 +4,7 @@
 
     <x-home.services />
 
-    <x-home.video-demo />
+
 
     <x-home.blog />
 
