@@ -1,4 +1,7 @@
-<div class="max-w-5xl mx-auto px-6 py-10 bg-white dark:bg-neutral-950 rounded-3xl shadow-2xl transition-all duration-300">
+    @section('meta_title', $post->meta_title ?? $post->title)
+    @section('meta_description', $post->meta_description ?? Str::limit(strip_tags($post->body_small), 160))
+<section class="py-6">
+<div class="max-w-5xl mx-auto px-6 py-10 bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl transition-all duration-300">
     @if ($post->cover_image)
         <div class="overflow-hidden rounded-2xl mb-6">
             <img src="{{ Storage::url($post->cover_image) }}" alt="{{ $post->title }}" class="w-full h-auto object-cover transition duration-300 hover:scale-105 rounded-xl shadow-lg">
@@ -60,11 +63,8 @@
             </div>
         </div>
     </p>
-
-
-
-
     <div class="tiptap-content">
         {!! $post->body_full !!}
     </div>
 </div>
+</section>

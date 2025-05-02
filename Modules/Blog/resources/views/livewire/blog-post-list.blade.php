@@ -1,4 +1,3 @@
-
 <section class="bg-gray-100 dark:bg-neutral-900 p-4">
     <div class="grid mt-16 py-4">
         <div class="container mx-auto px-4 text-center">
@@ -14,11 +13,6 @@
             <p class="block antialiased font-sans font-normal leading-relaxed text-inherit mx-auto w-full text-black dark:text-white lg:text-lg text-base">
                 Whether you're here to learn, explore, or just get inspired — you're in the right place.
             </p>
-            {{-- <div class="mt-8 grid w-full place-items-start md:justify-center">
-                <div class="mb-2 flex w-full flex-col gap-4 md:flex-row">
-
-                </div>
-            </div>--}}
         </div>
 
             <div x-data="{
@@ -35,19 +29,19 @@
                 init() {
                     this.startAutoplay();
                 }
-            }" x-init="init" @mouseenter="stopAutoplay" @mouseleave="startAutoplay" class="relative overflow-hidden w-full bg-gray-100 dark:bg-neutral-950 py-12">
+            }" x-init="init" @mouseenter="stopAutoplay" @mouseleave="startAutoplay" class="relative overflow-hidden w-full bg-gray-100 dark:bg-neutral-900 py-12">
                 <div x-ref="cards" class="flex gap-6 overflow-x-auto px-6 scroll-smooth snap-x snap-mandatory">
-                    @foreach($posts as $post)  <!-- Afișezi fiecare post -->
-                        <div class="relative min-w-[250px] max-w-[250px] bg-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out snap-center flex-shrink-0">
+                    @foreach($posts as $post)
+                        <div class="relative min-w-[250px] max-w-[250px] bg-white dark:bg-neutral-800 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out snap-center flex-shrink-0">
                             @if ($post->cover_image)
                                 <a href="{{ route('blog.show', $post->slug) }}">
-                                    <img src="{{ Storage::url($post->cover_image) }}" class="rounded-t-2xl w-full h-[150px] object-cover" />
+                                    <img src="{{ Storage::url($post->cover_image) }}" alt="{{ $post->title }}" class="rounded-t-2xl w-full h-[150px] object-cover" />
                                 </a>
                             @endif
 
                             <div class="p-4">
                                 <a href="{{ route('blog.show', $post->slug) }}">
-                                    <h3 class="text-lg font-bold">{{ $post->title }}</h3>
+                                    <h3 class="text-lg font-bold dark:text-red-600">{{ $post->title }}</h3>
                                 </a>
 
                                 <p class="text-sm text-gray-600 dark:text-gray-400 flex justify-center items-center gap-x-2">
@@ -75,17 +69,17 @@
                                     @endforeach
 
                                 </p>
-                                <p class="text-sm text-gray-600 dark:text-gray-400 flex justify-between items-center">
-                                    <span class="text-black">
+                                <p class="text-sm text-gray-600 dark:text-gray-400 flex justify-center items-center">
+                                    <span class="text-black dark:text-white">
                                         {{ $post->user->name }}
                                     </span>
-                                    <span class="text-black px-2 gap-2">
+                                    <span class="text-black dark:text-white px-2 gap-2">
                                         {{ \Carbon\Carbon::parse($post->created_at)->format('F j, Y') }}
                                     </span>
 
                                 </p>
 
-                                <p class="text-sm text-gray-600 mb-2">{{ Str::limit($post->body_small, 100) }}</p>
+                                <p class="text-sm text-gray-600 dark:text-white mb-2">{{ Str::limit($post->body_small, 100) }}</p>
                                 <a href="{{ route('blog.show', $post->slug) }}" class="text-blue-600 text-sm hover:underline">{{ $post->button_text ?? 'More' }}</a>
                             </div>
                         </div>
@@ -93,11 +87,11 @@
                 </div>
 
                 <button @click="scroll.scrollBy({ left: -300, behavior: 'smooth' })"
-                    class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow rounded-full p-2 transition">
+                    class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white dark:bg-neutral-800 shadow rounded-full p-2 transition">
                     ‹
                 </button>
                 <button @click="scroll.scrollBy({ left: 300, behavior: 'smooth' })"
-                    class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white shadow rounded-full p-2 transition">
+                    class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white dark:bg-neutral-800 shadow rounded-full p-2 transition">
                     ›
                 </button>
             </div>

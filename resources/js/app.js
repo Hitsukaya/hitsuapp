@@ -121,24 +121,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-if (typeof screen.orientation !== "undefined" && screen.orientation.lock) {
-    screen.orientation.lock("portrait").catch(function(e) {
-      console.log("Error locking orientation: ", e);
-    });
-  } else if (typeof screen.lockOrientation !== "undefined") {
-    screen.lockOrientation("portrait");
-  } else {
-    console.log("Orientation lock is not supported on this device.");
-  }
 
-if (window.innerWidth <= 768) {
-    if (typeof screen.orientation !== "undefined" && screen.orientation.lock) {
-      screen.orientation.lock("portrait").catch(function(e) {
-        console.log("Error locking orientation: ", e);
-      });
-    } else if (typeof screen.lockOrientation !== "undefined") {
-      screen.lockOrientation("portrait");
-    } else {
-      console.log("Orientation lock is not supported on this device.");
-    }
-  }
+

@@ -12,10 +12,22 @@ class EventServiceProvider extends ServiceProvider
      * @var array<string, array<int, string>>
      */
     protected $listen = [
+
         \Modules\Blog\Events\BlogPublished::class => [
             \Modules\Blog\Listeners\ScheduleBlogPublication::class,
         ],
+
+        \Modules\Blog\Events\NewBlogPostPublished::class => [
+            \Modules\Newsletter\Listeners\SendNewsletterOnNewBlogPost::class,
+        ],
+
     ];
+
+    public function boot(): void
+    {
+        parent::boot();
+    }
+
 
     /**
      * Indicates if events should be discovered.

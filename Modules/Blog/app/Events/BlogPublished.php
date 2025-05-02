@@ -10,7 +10,7 @@ class BlogPublished
 {
     use Dispatchable, SerializesModels;
 
-    public function __construct(public BlogPost $service)
+    public function __construct(public BlogPost $post)
     {
         //
     }

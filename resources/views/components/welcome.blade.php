@@ -29,7 +29,7 @@
 
                     {{-- Edit Button --}}
                     <a href="{{ route('profile.show') }}"
-                       class="mt-4 inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700 transition">
+                       class="mt-4 inline-flex items-center px-4 py-2 bg-red-600 text-white hover:text-white text-sm font-medium rounded-md hover:bg-red-700 transition">
                         <x-heroicon-o-pencil class="w-4 h-4 mr-1" /> Edit Profile
                     </a>
                 </div>
@@ -51,7 +51,7 @@
             {{-- Last Login --}}
             <div class="bg-white dark:bg-neutral-900 rounded-xl shadow-sm p-5 border border-gray-200 dark:border-gray-700">
                 <div class="flex items-center">
-                    <x-heroicon-o-clock class="w-5 h-5 text-indigo-600 dark:text-indigo-400"/>
+                    <x-heroicon-o-clock class="w-5 h-5 text-red-600 dark:text-red-500"/>
                     <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">Last login</span>
                 </div>
                 <p class="mt-2 text-xl font-semibold text-gray-900 dark:text-white">
@@ -62,11 +62,37 @@
             {{-- Total Logins --}}
             <div class="bg-white dark:bg-neutral-900 rounded-xl shadow-sm p-5 border border-gray-200 dark:border-gray-700">
                 <div class="flex items-center">
-                    <x-heroicon-o-finger-print class="w-5 h-5 text-indigo-600 dark:text-indigo-400"/>
+                    <x-heroicon-o-finger-print class="w-5 h-5 text-red-600 dark:text-red-500"/>
                     <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">Total logins</span>
                 </div>
                 <p class="mt-2 text-xl font-semibold text-gray-900 dark:text-white">
                     {{ Auth::user()->login_count ?? '—' }}
+                </p>
+            </div>
+
+            {{-- Coming  Soon --}}
+            <div class="bg-white dark:bg-neutral-900 rounded-xl shadow-sm p-5 border border-gray-200 dark:border-gray-700">
+                <div class="flex items-center">
+                    <x-heroicon-o-cog class="w-5 h-5 text-red-600 dark:text-red-500"/>
+                    <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">Coming Soon</span>
+                </div>
+                <p class="mt-2 text-xl font-semibold text-gray-900 dark:text-white">
+
+
+
+                </p>
+            </div>
+
+            {{-- Newsletter Preferences --}}
+            <div class="bg-white dark:bg-neutral-900 rounded-xl shadow-sm p-5 border border-gray-200 dark:border-gray-700">
+                <div class="flex items-center">
+                    <x-heroicon-o-cog class="w-5 h-5 text-red-600 dark:text-red-500"/>
+                    <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">Newsletter Preferences</span>
+                </div>
+                <p class="mt-2 text-xl font-semibold text-gray-900 dark:text-white">
+
+                    @livewire('newsletter.newsletter-preferences')
+
                 </p>
             </div>
 

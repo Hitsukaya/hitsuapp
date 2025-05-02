@@ -36,7 +36,7 @@
 
                 @if ($service->cover_image)
                     <a href="{{ route('services.show', $service->slug) }}">
-                        <img src="{{ Storage::url($service->cover_image) }}" class="rounded-t-2xl w-full h-[150px] object-cover" />
+                        <img src="{{ Storage::url($service->cover_image) }}" alt="{{ $service->title }}" class="rounded-t-2xl w-full h-[150px] object-cover" />
                     </a>
                 @endif
 

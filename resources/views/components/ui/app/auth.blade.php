@@ -15,18 +15,19 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
                     <x-nav-link href="{{ route('home') }}">
                         {{ __('Home') }}
+                    </x-nav-link>
+
+                    {{-- <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
                     </x-nav-link>
 
                     @if(auth()->user()?->hasRole(\App\Models\User::ROLE_ADMIN))
                     <x-nav-link href="{{ route('filament.dragon-hitsu-admin.pages.dashboard') }}">
                         {{ __('Administrator') }}
                     </x-nav-link>
-                    @endif
+                    @endif --}}
 
                 </div>
             </div>

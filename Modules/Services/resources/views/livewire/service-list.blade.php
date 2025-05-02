@@ -12,12 +12,6 @@
             <p class="block antialiased font-sans font-normal leading-relaxed text-inherit mx-auto w-full text-black dark:text-white lg:text-lg text-base">
                 Embrace your unique brilliance. Stand out with vibrant solutions that make a difference.
             </p>
-
-            {{-- <div class="mt-8 grid w-full place-items-start md:justify-center">
-                <div class="mb-2 flex w-full flex-col gap-4 md:flex-row">
-
-                </div>
-            </div> --}}
         </div>
 
         <div
@@ -51,12 +45,7 @@
                 >
                     @if ($service->cover_image)
                         <a href="{{ route('services.show', $service->slug) }}">
-                            <img
-                                src="{{ Storage::url($service->cover_image) }}"
-                                alt="{{ $service->title }}"
-                                loading="lazy"
-                                onerror="this.src='/images/fallback.jpg'"
-                                class="rounded-t-2xl w-full h-[150px] object-cover"
+                            <img src="{{ Storage::url($service->cover_image) }}" alt="{{ $service->title }}" loading="lazy" class="rounded-t-2xl w-full h-[150px] object-cover"
                             />
                         </a>
                     @endif

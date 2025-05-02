@@ -1,5 +1,5 @@
 <section>
-    <div class="bg-gray-100 dark:bg-neutral-950 font-sans text-center">
+    <div class="bg-gray-100 dark:bg-neutral-900 font-sans text-center">
         <div class="container mx-auto px-4 py-8">
             <div class="flex flex-col justify-center items-center my-16">
                 <h1 class="text-5xl font-extrabold mb-4 dark:text-white">Tag: <span class="text-red-600">{{ $tag->name }}</span></h1>
@@ -27,31 +27,31 @@
         init() {
             this.startAutoplay();
         }
-    }" x-init="init" @mouseenter="stopAutoplay" @mouseleave="startAutoplay" class="relative overflow-hidden w-full bg-gray-100 dark:bg-neutral-950 py-8">
+    }" x-init="init" @mouseenter="stopAutoplay" @mouseleave="startAutoplay" class="relative overflow-hidden w-full bg-gray-100 dark:bg-neutral-900 py-8">
         <div x-ref="cards" class="flex gap-6 overflow-x-auto px-6 scroll-smooth snap-x snap-mandatory">
             @foreach($tag->posts as $post)  <!-- Modificat pentru a folosi tag->posts -->
-                <div class="relative min-w-[250px] max-w-[250px] bg-white rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out snap-center flex-shrink-0">
+                <div class="relative min-w-[250px] max-w-[250px] bg-white dark:bg-neutral-800 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out snap-center flex-shrink-0">
                     @if ($post->cover_image)
                         <a href="{{ route('blog.show', $post->slug) }}">
-                            <img src="{{ Storage::url($post->cover_image) }}" class="rounded-t-2xl w-full h-[150px] object-cover" />
+                            <img src="{{ Storage::url($post->cover_image) }}" alt="{{ $post->title }}" class="rounded-t-2xl w-full h-[150px] object-cover" />
                         </a>
                     @endif
 
                     <div class="p-4">
                         <a href="{{ route('blog.show', $post->slug) }}">
-                            <h3 class="text-lg font-bold">{{ $post->title }}</h3>
+                            <h3 class="text-lg font-bold dark:text-red-600">{{ $post->title }}</h3>
                         </a>
 
                         <p class="text-sm text-gray-600 dark:text-gray-400 flex justify-between items-center">
-                            <span class="text-black">
+                            <span class="text-black dark:text-white">
                                 {{ $post->user->name }}
                             </span>
-                            <span class="text-black px-2 gap-2">
+                            <span class="text-black dark:text-white px-2 gap-2">
                                 {{ \Carbon\Carbon::parse($post->created_at)->format('F j, Y') }}
                             </span>
                         </p>
 
-                        <p class="text-sm text-gray-600 mb-2">{{ Str::limit($post->body_small, 100) }}</p>
+                        <p class="text-sm text-gray-600 dark:text-white mb-2">{{ Str::limit($post->body_small, 100) }}</p>
                         <a href="{{ route('blog.show', $post->slug) }}" class="text-blue-600 text-sm hover:underline">{{ $post->button_text ?? 'More' }}</a>
                     </div>
                 </div>

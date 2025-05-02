@@ -100,6 +100,23 @@ class BlogPostResource extends Resource
                     ])->columns(3),
                 ])->columnSpan(6),
 
+                Fieldset::make('Seo section')
+                ->schema([
+                    Grid::make()
+                        ->schema([
+                            TextInput::make('meta_title')
+                                ->label('Meta Title')
+                                ->maxLength(60)
+                                ->required(),
+
+                            Textarea::make('meta_description')
+                                ->label('Meta Description')
+                                ->maxLength(160)
+                                ->rows(3)
+                                ->required(),
+                        ])->columns(2),
+                ])->columnSpan(6),
+
             Fieldset::make('Small description')
                 ->schema([
                     Textarea::make('body_small')

@@ -4,9 +4,9 @@
 
     <x-home.services />
 
-
-
     <x-home.blog />
+
+    <x-footer.newsletter />
 
     <x-home.partners />
 

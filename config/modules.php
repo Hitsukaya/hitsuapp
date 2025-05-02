@@ -300,6 +300,7 @@ return [
         'enabled' => [
             'Services',
             'Blog',
+            'Newsletter',
         ],
     ],
 

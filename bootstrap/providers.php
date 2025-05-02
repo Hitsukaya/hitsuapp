@@ -8,4 +8,5 @@ return [
     App\Providers\JetstreamServiceProvider::class,
     Modules\Services\Providers\ServicesServiceProvider::class,
     Modules\Blog\Providers\BlogServiceProvider::class,
+    Modules\Newsletter\Providers\NewsletterServiceProvider::class,
 ];

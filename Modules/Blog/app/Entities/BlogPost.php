@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use Modules\Blog\Enums\BlogStatus;
+use Modules\Blog\Events\NewBlogPostPublished;
 
 class BlogPost extends Model
 {
@@ -39,12 +40,6 @@ class BlogPost extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-
-    // public function tags()
-    // {
-    //     return $this->belongsToMany(BlogTag::class, 'blog_post_tag');
-    // }
 
     public function tags()
     {
@@ -105,6 +100,15 @@ class BlogPost extends Model
         static::updating(function ($post) {
             if ($post->isDirty('title') && empty($post->slug)) {
                 $post->slug = Str::slug($post->title);
+            }
+        });
+
+        static::updated(function ($post) {
+            if (
+                $post->wasChanged('status') &&
+                $post->status === BlogStatus::PUBLISHED->value
+            ) {
+                event(new NewBlogPostPublished($post));
             }
         });
     }
