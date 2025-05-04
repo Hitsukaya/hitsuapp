@@ -21,4 +21,3 @@ Route::get('/send-newsletter', [NewsletterController::class, 'sendNewsletter']);
 // })->name('newsletter.unsubscribe');
 
 Route::get('/unsubscribe/{email}/{token}', [NewsletterUnsubscribe::class, 'unsubscribe'])->name('newsletter.unsubscribe');
-

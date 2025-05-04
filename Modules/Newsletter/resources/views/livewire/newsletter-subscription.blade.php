@@ -40,7 +40,7 @@
         </form>
         <p class="mt-3 text-sm text-gray-800 dark:text-white">
           We care about the protection of your data. Read our
-          <a href="" class="font-medium text-black dark:text-red-600 underline">Privacy Policy.</a>
+          <a href="{{ route('policy.show') }}" class="font-medium text-black dark:text-red-600 underline">Privacy Policy.</a>
         </p>
       </div>
     </div>
