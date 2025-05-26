@@ -1,3 +1,8 @@
+
+    @section('meta_image', url(Storage::url($service->cover_image)))
+    @section('meta_title', $service->meta_title ?? $service->title)
+    @section('meta_description', $service->meta_description ?? Str::limit(strip_tags($service->body_small), 160))
+
 <section class="py-6">
 <div class="max-w-5xl mx-auto px-6 py-10 bg-white dark:bg-neutral-800 rounded-3xl shadow-2xl transition-all duration-300">
     @if ($service->cover_image)

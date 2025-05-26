@@ -9,6 +9,10 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::get('/certificate', function() {
+    return view('certificate');
+})->name('certificate');
+
 Route::get('/cookies', function() {
     return view('cookies');
 })->name('cookies.show');
