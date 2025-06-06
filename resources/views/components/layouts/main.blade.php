@@ -15,13 +15,13 @@
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon/favicon-16x16.png') }}">
 
         <meta property="og:type" content="app">
-        <meta property="og:title" content="@yield('meta_title', '- Reliable and Innovative Solutions')">
+        <meta property="og:title" content="@yield('meta_title', config('app.name'))">
         <meta property="og:description" content="@yield('meta_description', 'Hitsukaya combines stability and innovation to offer reliable and cutting-edge solutions, providing web and mobile applications that support creativity and long-term success.')">
         <meta property="og:image" content="@yield('meta_image', asset('assets/images/summary_large_image/summary_large_image-hitsukaya.png'))">
         <meta property="og:url" content="{{ url()->current() }}">
 
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="@yield('meta_title', '- Reliable and Innovative Solutions')">
+        <meta name="twitter:title" content="@yield('meta_title', config('app.name'))">
         <meta name="twitter:description" content="@yield('meta_description', 'Hitsukaya combines stability and innovation to offer reliable and cutting-edge solutions, providing web and mobile applications that support creativity and long-term success.')">
         <meta name="twitter:image" content="@yield('meta_image', asset('assets/images/summary_large_image/summary_large_image-hitsukaya.png'))">
 
