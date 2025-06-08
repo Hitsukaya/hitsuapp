@@ -1,9 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CacheController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Route;
 use Modules\Blog\Entities\BlogPost;
 use Modules\Services\Entities\Service;
+
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -59,4 +61,10 @@ Route::get('/sitemap.xml', function () {
 
     return response()->view('sitemap', compact('entries'))
         ->header('Content-Type', 'text/xml');
+});
+
+
+// Cache Clear
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::post('/clear-cache', [CacheController::class, 'clear'])->name('cache.clear');
 });

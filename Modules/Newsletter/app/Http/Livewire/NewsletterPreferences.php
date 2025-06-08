@@ -31,8 +31,18 @@ class NewsletterPreferences extends Component
             ['name' => Auth::user()->name, 'token' => Str::random(60)]
         );
 
-        $subscription->unsubscribed = !$subscription->unsubscribed;
+        $wasUnsubscribed = $subscription->unsubscribed;
+
+        $subscription->unsubscribed = !$wasUnsubscribed;
+
+        if ($wasUnsubscribed) {
+            $subscription->created_at = now();
+            $subscription->token = Str::random(60);
+        }
+
         $subscription->save();
+
+        $subscription->refresh();
 
         $this->subscribed = !$subscription->unsubscribed;
         $this->subscriptionDate = $subscription->created_at;

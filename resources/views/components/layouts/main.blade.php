@@ -25,7 +25,7 @@
         <meta name="twitter:description" content="@yield('meta_description', 'Hitsukaya combines stability and innovation to offer reliable and cutting-edge solutions, providing web and mobile applications that support creativity and long-term success.')">
         <meta name="twitter:image" content="@yield('meta_image', asset('assets/images/summary_large_image/summary_large_image-hitsukaya.png'))">
 
-        <link rel="canonical" href="https://hitsukaya.com">
+        <link rel="canonical" href="{{ url()->current() }}">
 
         <script>
             if (typeof(Storage) !== "undefined") {

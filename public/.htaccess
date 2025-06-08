@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    # Redirect all suspicious /index.php?xyz requests to homepage
+    RewriteCond %{THE_REQUEST} \s/index\.php\?
+    RewriteRule ^ index [R=301,L]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]

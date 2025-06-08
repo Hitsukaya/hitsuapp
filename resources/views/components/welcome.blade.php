@@ -70,18 +70,18 @@
                 </p>
             </div>
 
-            {{-- Coming  Soon --}}
-            <div class="bg-white dark:bg-neutral-900 rounded-xl shadow-sm p-5 border border-gray-200 dark:border-gray-700">
-                <div class="flex items-center">
-                    <x-heroicon-o-cog class="w-5 h-5 text-red-600 dark:text-red-500"/>
-                    <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">Coming Soon</span>
+            {{-- Exta Functionality --}}
+            @if(auth()->user()->role === 'ADMIN' || auth()->user()->role === 'EDITOR')
+                <div class="bg-white dark:bg-neutral-900 rounded-xl shadow-sm p-5 border border-gray-200 dark:border-gray-700">
+                    <div class="flex items-center">
+                        <x-heroicon-o-cog class="w-5 h-5 text-red-600 dark:text-red-500"/>
+                        <span class="ml-2 text-sm text-gray-600 dark:text-gray-300">Extra Functionality</span>
+                    </div>
+                    <p class="mt-2 text-xl py-2 font-semibold text-gray-900 dark:text-white">
+                        <x-cache-clear />
+                    </p>
                 </div>
-                <p class="mt-2 text-xl font-semibold text-gray-900 dark:text-white">
-
-
-
-                </p>
-            </div>
+            @endif
 
             {{-- Newsletter Preferences --}}
             <div class="bg-white dark:bg-neutral-900 rounded-xl shadow-sm p-5 border border-gray-200 dark:border-gray-700">
@@ -121,58 +121,5 @@
             </div>
         </div>
     </div>
-
-
-
-
 </div>
 
-{{-- <div class="select-none bg-gray-200 dark:bg-neutral-900 bg-opacity-25 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8">
-    <div>
-        <div class="flex items-center">
-            <x-heroicon-o-book-open class="size-6 stroke-gray-400"/>
-            <h2 class="ms-3 text-xl font-semibold text-gray-900 dark:text-white">
-                <a href="#">Platform Guide</a>
-            </h2>
-        </div>
-        <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-            Learn how to use Hitsukaya, submit your works, or join editing clubs with our easy-to-follow guide.
-        </p>
-    </div>
-
-    <div>
-        <div class="flex items-center">
-            <x-heroicon-o-video-camera class="size-6 stroke-gray-400"/>
-            <h2 class="ms-3 text-xl font-semibold text-gray-900 dark:text-white">
-                Video Tutorials
-            </h2>
-        </div>
-        <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-            Prefer visual learning? Explore short videos covering key features of the platform.
-        </p>
-    </div>
-
-    <div>
-        <div class="flex items-center">
-            <x-heroicon-o-user-group class="size-6 stroke-gray-400"/>
-            <h2 class="ms-3 text-xl font-semibold text-gray-900 dark:text-white">
-                Join a Club
-            </h2>
-        </div>
-        <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-            Connect with manga editors, animators, and story writers. You’re just a few clicks away from joining a creative team!
-        </p>
-    </div>
-
-    <div>
-        <div class="flex items-center">
-            <x-heroicon-o-chat-bubble-left-ellipsis class="size-6 stroke-gray-400"/>
-            <h2 class="ms-3 text-xl font-semibold text-gray-900 dark:text-white">
-                Need Help?
-            </h2>
-        </div>
-        <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-            Reach out via our support chat or visit the FAQ section. We're here to support your creative journey.
-        </p>
-    </div>
-</div> --}}
