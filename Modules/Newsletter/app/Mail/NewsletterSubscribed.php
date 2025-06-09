@@ -17,6 +17,7 @@ class NewsletterSubscribed extends Mailable
         // $this->content = $content;
         // $this->unsubscribeUrl = route('newsletter.unsubscribe', ['email' => $content['email']]);
 
+        $name = $content['name']  ?? null;
         $email = $content['email'] ?? null;
         $token = $content['token'] ?? null;
 
@@ -28,11 +29,13 @@ class NewsletterSubscribed extends Mailable
 
     public function build()
     {
-        return $this->view('newsletter::emails.newsletter')
-                    ->with([
-                        'content' => $this->content,
-                        'unsubscribeUrl' => $this->unsubscribeUrl,
-                    ]);
+        return $this->markdown('newsletter::emails.newsletter')
+            ->subject($this->content['title'] ?? 'Newsletter')
+            ->replyTo($this->content['email'], $this->content['name'] ?? null)
+            ->with([
+                'content' => $this->content,
+                'unsubscribeUrl' => $this->unsubscribeUrl,
+            ]);
     }
 }
 

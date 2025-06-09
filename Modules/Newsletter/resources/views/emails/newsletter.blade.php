@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $content['title'] ?? 'Newsletter' }}</title>
-</head>
-<body>
-    <h1>{{ $content['title'] ?? 'Newsletter' }}</h1>
-    <p>{{ $content['body'] ?? 'This is a test message for the newsletter.' }}</p>
+<x-mail::message>
+# Newsletter - {{ config('app.name') }}
 
-    <p>If you no longer wish to receive these emails, you can unsubscribe using the link below:</p>
-    <a href="{{ $unsubscribeUrl }}">Unsubscribe</a>
-</body>
-</html>
+You are now subscribed to our newsletter.
+
+---
+
+**Subscriber Details:**
+
+- **Name:** {{ $content['name'] ?? 'N/A' }}
+- **Email:** {{ $content['email'] ?? 'N/A' }}
+
+---
+
+<x-mail::button :url="$unsubscribeUrl">
+Unsubscribe
+</x-mail::button>
+
+Regards,<br>
+{{ config('app.name') }}
+</x-mail::message>

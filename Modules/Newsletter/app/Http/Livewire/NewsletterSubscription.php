@@ -29,9 +29,9 @@ class NewsletterSubscription extends Component
         ]);
 
         $content = [
-            'title' => 'Thank you for subscribing!',
-            'body' => 'You are now subscribed to our newsletter.',
+            'name' => $this->name,
             'email' => $this->email,
+            'token' => $subscription->token,
         ];
 
         SendNewsletterEmail::dispatch($this->email, $content);
