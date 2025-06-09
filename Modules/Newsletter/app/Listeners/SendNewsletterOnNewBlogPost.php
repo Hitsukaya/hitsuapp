@@ -4,7 +4,8 @@ namespace Modules\Newsletter\Listeners;
 
 use Modules\Blog\Events\NewBlogPostPublished;
 use Modules\Newsletter\Entities\Subscription;
-use Modules\Newsletter\Jobs\SendNewsletterEmail;
+use Modules\Newsletter\Mail\NewBlogPostNotification;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class SendNewsletterOnNewBlogPost
@@ -13,11 +14,7 @@ class SendNewsletterOnNewBlogPost
     {
         $post = $event->post;
 
-        $post->load('user', 'categories', 'tags');
-
-        \Log::info('Cover image:', [$post->cover_image]);
-        \Log::info('Author:', [$post->user ? $post->user->name : 'No user']);
-
+        $url = url('/blog/' . $post->slug);
         $content = [
             'title'       => '📢 ' . $post->title,
             'body'        => $post->body_small ?? 'Check out our latest blog post!',
@@ -27,10 +24,8 @@ class SendNewsletterOnNewBlogPost
             'published_at'=> $post->created_at ? $post->created_at->format('F j, Y') : null,
         ];
 
-        Subscription::chunk(100, function ($subscribers) use ($content) {
-            foreach ($subscribers as $subscriber) {
-                SendNewsletterEmail::dispatch($subscriber->email, $content);
-            }
-        });
+        foreach (Subscription::all() as $subscriber) {
+            Mail::to($subscriber->email)->send(new NewBlogPostNotification($content));
+        }
     }
 }

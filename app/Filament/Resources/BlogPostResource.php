@@ -31,6 +31,9 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 use Modules\Blog\Entities\BlogPost;
 use Modules\Blog\Enums\BlogStatus;
+use Modules\Newsletter\Entities\Subscription;
+use Modules\Newsletter\Mail\NewBlogPostNotification;
+use Illuminate\Support\Facades\Mail;
 
 class BlogPostResource extends Resource
 {
@@ -204,6 +207,25 @@ class BlogPostResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('send_newsletter')
+                    ->label('Send Newsletter')
+                    ->action(function ($record) {
+                        $url = url('/blog/' . $record->slug);
+                        $content = [
+                            'title' => '📢 ' . $record->title,
+                            'body'  => $record->body_small ?? 'Check out our latest blog post!',
+                            'url'   => $url,
+                        ];
+
+                        Subscription::chunk(100, function ($subscribers) use ($content) {
+                            foreach ($subscribers as $subscriber) {
+                                Mail::to($subscriber->email)->queue(new NewBlogPostNotification($content));
+                            }
+                        });
+                    })
+                    ->color('success')
+                    ->icon('heroicon-o-envelope')
+                    ->requiresConfirmation(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
